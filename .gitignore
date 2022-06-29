@@ -1,0 +1,14 @@
+build
+
+# don't commit source for subprojects
+subprojects/googletest
+subprojects/minunit
+subprojects/rcpr
+subprojects/vccert
+subprojects/vccrypt
+subprojects/vcmodel
+subprojects/vpr
+
+#cscope / ctags artifacts
+cscope.*
+tags

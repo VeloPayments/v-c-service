@@ -1,0 +1,1 @@
+#define VCSERVICE_VERSION "@VERSION@"
