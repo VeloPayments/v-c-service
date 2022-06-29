@@ -17,7 +17,7 @@ instead.
 This project uses [Meson][meson-url] as the build tool and requires
 [ninja][ninja-url] to perform the actual build.
 
-[meson-url]: https://mesonbuild.org
+[meson-url]: https://mesonbuild.com
 [ninja-url]: https://ninja-build.org
 
 To build (from this directory):
