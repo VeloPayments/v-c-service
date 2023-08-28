@@ -137,6 +137,15 @@ void
 vcservice_log_message_start(vcservice_log* log);
 
 /**
+ * \brief Append a string value to the logging message.
+ *
+ * \param log           The \ref vcservice_log instance for this operation.
+ * \param val           The string value to append.
+ */
+void
+vcservice_log_append_string(vcservice_log* log, const char* val);
+
+/**
  * \brief Commit the logging message.
  *
  * \param log           The \ref vcservice_log instance for this operation.
