@@ -345,6 +345,10 @@ vcservice_log_threshold_level(const vcservice_log* log);
         vcservice_log_message_commit(log); \
     } } while (0)
 
+#define LOG_HEX(arg) \
+    &vcservice_log_format_hex_sentry, (arg), \
+    &vcservice_log_format_default_sentry
+
 #define VCSERVICE_LOG_END_OF_INPUT(arg) \
     _Generic((arg), \
         vcservice_log_end_of_message*: true, \
