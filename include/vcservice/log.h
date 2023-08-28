@@ -343,6 +343,7 @@ vcservice_log_threshold_level(const vcservice_log* log);
     do { \
     if (vcservice_log_threshold_level(log) >= VCSERVICE_LOGLEVEL_DEBUG) { \
         vcservice_log_message_start(log); \
+        vcservice_log_append_log_level(log, VCSERVICE_LOGLEVEL_DEBUG); \
         VCSERVICE_LOG01(log, __VA_ARGS__, \
             VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, \
             VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, \
