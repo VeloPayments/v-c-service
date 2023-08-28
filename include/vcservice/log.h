@@ -327,6 +327,22 @@ vcservice_log_threshold_level(const vcservice_log* log);
 /* Start of utility macros.                                                   */
 /******************************************************************************/
 
+/* this section won't work in C++. */
+#if !defined(__cplusplus)
+
+#define DEBUG_LOG(log, ...) \
+    do { \
+    if (vcservice_log_threshold_level(log) >= VCSERVICE_LOGLEVEL_DEBUG) { \
+        VCSERVICE_LOG01(log, __VA_ARGS__, \
+            VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, \
+            VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, \
+            VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, \
+            VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, \
+            VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, \
+            VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, \
+            VCLEOM, VCLEOM, VCLEOM) \
+    } } while (0)
+
 #define VCSERVICE_LOG_END_OF_INPUT(arg) \
     _Generic((arg), \
         vcservice_log_end_of_message*: true, \
@@ -346,11 +362,11 @@ vcservice_log_threshold_level(const vcservice_log* log);
         char*: vcservice_log_append_string, \
         const RCPR_SYM(rcpr_uuid)*: vcservice_log_append_uuid, \
         RCPR_SYM(rcpr_uuid)*: vcservice_log_append_uuid, \
-        vcservice_log_format_set_default*: vcservice_log_format_set_default, \
-        const vcservice_log_format_set_default*: \
+        vcservice_log_format_default*: vcservice_log_format_set_default, \
+        const vcservice_log_format_default*: \
             vcservice_log_format_set_default, \
-        vcservice_log_format_set_hex*: vcservice_log_format_set_hex, \
-        const vcservice_log_format_set_hex*: \
+        vcservice_log_format_hex*: vcservice_log_format_set_hex, \
+        const vcservice_log_format_hex*: \
             vcservice_log_format_set_hex, \
         vcservice_log_end_of_message*: vcservice_log_no_op, \
         const vcservice_log_end_of_message*: vcservice_log_no_op \
@@ -659,6 +675,8 @@ vcservice_log_threshold_level(const vcservice_log* log);
     }
 
 #define VCLEOM &vcservice_log_end_of_message_sentry
+
+#endif /* !defined(__cplusplus) */
 
 /* make this header C++ friendly. */
 #ifdef __cplusplus
