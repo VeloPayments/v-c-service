@@ -11,6 +11,7 @@
 #include <rcpr/allocator.h>
 #include <rcpr/psock.h>
 #include <rcpr/resource.h>
+#include <stdint.h>
 
 /* make this header C++ friendly. */
 #ifdef __cplusplus
@@ -144,6 +145,15 @@ vcservice_log_message_start(vcservice_log* log);
  */
 void
 vcservice_log_append_string(vcservice_log* log, const char* val);
+
+/**
+ * \brief Append an 8-bit integer value to the logging message.
+ *
+ * \param log           The \ref vcservice_log instance for this operation.
+ * \param val           The integer value to append.
+ */
+void
+vcservice_log_append_int8(vcservice_log* log, int8_t val);
 
 /**
  * \brief Commit the logging message.
