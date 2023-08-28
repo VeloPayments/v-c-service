@@ -239,6 +239,16 @@ void
 vcservice_log_append_uuid(vcservice_log* log, const RCPR_SYM(rcpr_uuid)* val);
 
 /**
+ * \brief Set the log formatting mode to the default.
+ *
+ * \param log           The \ref vcservice_log instance for this operation.
+ * \param val           The dummy value for this operation.
+ */
+void
+vcservice_log_format_set_default(
+    vcservice_log* log, const vcservice_log_format_default* val);
+
+/**
  * \brief Commit the logging message.
  *
  * \param log           The \ref vcservice_log instance for this operation.
