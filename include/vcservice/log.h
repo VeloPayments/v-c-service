@@ -360,6 +360,16 @@ vcservice_log_threshold_level(const vcservice_log* log);
     LOG_WITH_LEVEL(log, VCSERVICE_LOGLEVEL_VERBOSE, __VA_ARGS__)
 
 /**
+ * \brief Log an info message to the given logger.
+ *
+ * \param log           The logger for this operation.
+ * \param ...           A comma separated list of values to append to this log
+ *                      message.
+ */
+#define INFO_LOG(log, ...) \
+    LOG_WITH_LEVEL(log, VCSERVICE_LOGLEVEL_INFO, __VA_ARGS__)
+
+/**
  * \brief Format the given value as hexadecimal if that is supported for this
  * type.
  *
