@@ -125,13 +125,25 @@ vcservice_log_create_using_standard_output(
     vcservice_log** log, RCPR_SYM(allocator)* a, unsigned int threshold_level);
 
 /******************************************************************************/
+/* Start of public methods.                                                   */
+/******************************************************************************/
+
+/**
+ * \brief Start a new logging message.
+ *
+ * \param log           The \ref vcservice_log instance for this operation.
+ */
+void
+vcservice_log_start_message(vcservice_log* log);
+
+/******************************************************************************/
 /* Start of accessors.                                                        */
 /******************************************************************************/
 
 /**
  * \brief Given a \ref vcservice_log instance, return its resource handle.
  *
- * \param log           The \ref vcservice_log insatnce from which the resource
+ * \param log           The \ref vcservice_log instance from which the resource
  *                      handle is returned.
  *
  * \returns the resource handle for this \ref vcservice_log instance.
@@ -143,7 +155,7 @@ vcservice_log_resource_handle(vcservice_log* log);
  * \brief Given a \ref vcservice_log instance, return its logging threshold
  * level.
  *
- * \param log           The \ref vcservice_log insatnce from which the resource
+ * \param log           The \ref vcservice_log instance from which the resource
  *                      handle is returned.
  *
  * \returns the logging threshold for this \ref vcservice_log instance.
