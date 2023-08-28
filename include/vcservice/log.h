@@ -11,6 +11,7 @@
 #include <rcpr/allocator.h>
 #include <rcpr/psock.h>
 #include <rcpr/resource.h>
+#include <rcpr/uuid.h>
 #include <stdint.h>
 
 /* make this header C++ friendly. */
@@ -217,6 +218,15 @@ vcservice_log_append_int64(vcservice_log* log, int64_t val);
  */
 void
 vcservice_log_append_uint64(vcservice_log* log, uint64_t val);
+
+/**
+ * \brief Append a UUID value to the logging message.
+ *
+ * \param log           The \ref vcservice_log instance for this operation.
+ * \param val           The uuid value to append.
+ */
+void
+vcservice_log_append_uuid(vcservice_log* log, const RCPR_SYM(rcpr_uuid)* val);
 
 /**
  * \brief Commit the logging message.
