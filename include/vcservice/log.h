@@ -35,6 +35,16 @@ typedef struct vcservice_log_format_default vcservice_log_format_default;
 extern vcservice_log_format_default vcservice_log_format_default_sentry;
 
 /**
+ * \brief Forward decl for the hexadecimal log format.
+ */
+typedef struct vcservice_log_format_hex vcservice_log_format_hex;
+
+/**
+ * \brief The sentry value for the hexadecimal log format.
+ */
+extern vcservice_log_format_hex vcservice_log_format_hex_sentry;
+
+/**
  * \brief Log levels.
  */
 enum vcservice_loglevel
