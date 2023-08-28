@@ -347,20 +347,7 @@ vcservice_log_threshold_level(const vcservice_log* log);
  *                      message.
  */
 #define DEBUG_LOG(log, ...) \
-    do { \
-    if (vcservice_log_threshold_level(log) >= VCSERVICE_LOGLEVEL_DEBUG) { \
-        vcservice_log_message_start(log); \
-        vcservice_log_append_log_level(log, VCSERVICE_LOGLEVEL_DEBUG); \
-        VCSERVICE_LOG01(log, __VA_ARGS__, \
-            VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, \
-            VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, \
-            VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, \
-            VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, \
-            VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, \
-            VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, \
-            VCLEOM, VCLEOM, VCLEOM) \
-        vcservice_log_message_commit(log); \
-    } } while (0)
+    LOG_WITH_LEVEL(log, VCSERVICE_LOGLEVEL_DEBUG, __VA_ARGS__)
 
 /**
  * \brief Log a verbose message to the given logger.
@@ -370,20 +357,7 @@ vcservice_log_threshold_level(const vcservice_log* log);
  *                      message.
  */
 #define VERBOSE_LOG(log, ...) \
-    do { \
-    if (vcservice_log_threshold_level(log) >= VCSERVICE_LOGLEVEL_VERBOSE) { \
-        vcservice_log_message_start(log); \
-        vcservice_log_append_log_level(log, VCSERVICE_LOGLEVEL_VERBOSE); \
-        VCSERVICE_LOG01(log, __VA_ARGS__, \
-            VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, \
-            VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, \
-            VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, \
-            VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, \
-            VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, \
-            VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, \
-            VCLEOM, VCLEOM, VCLEOM) \
-        vcservice_log_message_commit(log); \
-    } } while (0)
+    LOG_WITH_LEVEL(log, VCSERVICE_LOGLEVEL_VERBOSE, __VA_ARGS__)
 
 /**
  * \brief Format the given value as hexadecimal if that is supported for this
@@ -396,6 +370,22 @@ vcservice_log_threshold_level(const vcservice_log* log);
 #define LOG_HEX(arg) \
     &vcservice_log_format_hex_sentry, (arg), \
     &vcservice_log_format_default_sentry
+
+#define LOG_WITH_LEVEL(log, level, ...) \
+    do { \
+    if (vcservice_log_threshold_level(log) >= (level)) { \
+        vcservice_log_message_start(log); \
+        vcservice_log_append_log_level(log, (level)); \
+        VCSERVICE_LOG01(log, __VA_ARGS__, \
+            VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, \
+            VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, \
+            VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, \
+            VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, \
+            VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, \
+            VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, \
+            VCLEOM, VCLEOM, VCLEOM) \
+        vcservice_log_message_commit(log); \
+    } } while (0)
 
 #define VCSERVICE_LOG_END_OF_INPUT(arg) \
     _Generic((arg), \
