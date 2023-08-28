@@ -317,6 +317,11 @@ vcservice_log_threshold_level(const vcservice_log* log);
 /* Start of utility macros.                                                   */
 /******************************************************************************/
 
+#define VCSERVICE_LOG_END_OF_INPUT(arg) \
+    _Generic((arg), \
+        vcservice_log_end_of_message*: true, \
+        default: false)
+
 /* make this header C++ friendly. */
 #ifdef __cplusplus
 }
