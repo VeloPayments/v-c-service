@@ -285,7 +285,7 @@ vcservice_log_format_set_hex(
  * \param val           The dummy value for this operation.
  */
 void
-vcservice_log_format_no_op(
+vcservice_log_no_op(
     vcservice_log* log, const void* val);
 
 /**
@@ -331,6 +331,30 @@ vcservice_log_threshold_level(const vcservice_log* log);
     _Generic((arg), \
         vcservice_log_end_of_message*: true, \
         default: false)
+
+#define VCSERVICE_LOG_ITEM(log, arg) \
+    _Generic((arg), \
+        int8_t: vcservice_log_append_int8, \
+        uint8_t: vcservice_log_append_uint8, \
+        int16_t: vcservice_log_append_int16, \
+        uint16_t: vcservice_log_append_uint16, \
+        int32_t: vcservice_log_append_int32, \
+        uint32_t: vcservice_log_append_uint32, \
+        int64_t: vcservice_log_append_int64, \
+        uint64_t: vcservice_log_append_uint64, \
+        const char*: vcservice_log_append_string, \
+        char*: vcservice_log_append_string, \
+        const RCPR_SYM(rcpr_uuid)*: vcservice_log_append_uuid, \
+        RCPR_SYM(rcpr_uuid)*: vcservice_log_append_uuid, \
+        vcservice_log_format_set_default*: vcservice_log_format_set_default, \
+        const vcservice_log_format_set_default*: \
+            vcservice_log_format_set_default, \
+        vcservice_log_format_set_hex*: vcservice_log_format_set_hex, \
+        const vcservice_log_format_set_hex*: \
+            vcservice_log_format_set_hex, \
+        vcservice_log_end_of_message*: vcservice_log_no_op, \
+        const vcservice_log_end_of_message*: vcservice_log_no_op \
+        )((log), (arg))
 
 /* make this header C++ friendly. */
 #ifdef __cplusplus
