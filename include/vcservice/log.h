@@ -134,7 +134,15 @@ vcservice_log_create_using_standard_output(
  * \param log           The \ref vcservice_log instance for this operation.
  */
 void
-vcservice_log_start_message(vcservice_log* log);
+vcservice_log_message_start(vcservice_log* log);
+
+/**
+ * \brief Commit the logging message.
+ *
+ * \param log           The \ref vcservice_log instance for this operation.
+ */
+void
+vcservice_log_message_commit(vcservice_log* log);
 
 /******************************************************************************/
 /* Start of accessors.                                                        */
