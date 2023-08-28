@@ -124,6 +124,21 @@ status FN_DECL_MUST_CHECK
 vcservice_log_create_using_standard_output(
     vcservice_log** log, RCPR_SYM(allocator)* a, unsigned int threshold_level);
 
+/******************************************************************************/
+/* Start of accessors.                                                        */
+/******************************************************************************/
+
+/**
+ * \brief Given a \ref vcservice_log instance, return its resource handle.
+ *
+ * \param log           The \ref vcservice_log insatnce from which the resource
+ *                      handle is returned.
+ *
+ * \returns the resource handle for this \ref vcservice_log instance.
+ */
+RCPR_SYM(resource*)
+vcservice_log_resource_handle(vcservice_log* log);
+
 /* make this header C++ friendly. */
 #ifdef __cplusplus
 }
