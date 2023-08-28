@@ -174,6 +174,15 @@ void
 vcservice_log_append_int16(vcservice_log* log, int16_t val);
 
 /**
+ * \brief Append a 16-bit unsigned integer value to the logging message.
+ *
+ * \param log           The \ref vcservice_log instance for this operation.
+ * \param val           The unsigned integer value to append.
+ */
+void
+vcservice_log_append_uint16(vcservice_log* log, uint16_t val);
+
+/**
  * \brief Commit the logging message.
  *
  * \param log           The \ref vcservice_log instance for this operation.
