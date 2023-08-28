@@ -259,6 +259,16 @@ vcservice_log_format_set_default(
     vcservice_log* log, const vcservice_log_format_default* val);
 
 /**
+ * \brief Set the log formatting mode to hex.
+ *
+ * \param log           The \ref vcservice_log instance for this operation.
+ * \param val           The dummy value for this operation.
+ */
+void
+vcservice_log_format_set_hex(
+    vcservice_log* log, const vcservice_log_format_hex* val);
+
+/**
  * \brief Commit the logging message.
  *
  * \param log           The \ref vcservice_log instance for this operation.
