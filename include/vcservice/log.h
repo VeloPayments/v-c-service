@@ -356,6 +356,308 @@ vcservice_log_threshold_level(const vcservice_log* log);
         const vcservice_log_end_of_message*: vcservice_log_no_op \
         )((log), (arg))
 
+#define VCSERVICE_LOG01(log, arg, ...) \
+    VCSERVICE_LOG_ITEM(log, arg); \
+    if (!VCSERVICE_LOG_END_OF_INPUT(arg)) { \
+        VCSERVICE_LOG02(log, __VA_ARGS__); \
+    }
+
+#define VCSERVICE_LOG02(log, arg, ...) \
+    VCSERVICE_LOG_ITEM(log, arg); \
+    if (!VCSERVICE_LOG_END_OF_INPUT(arg)) { \
+        VCSERVICE_LOG03(log, __VA_ARGS__); \
+    }
+
+#define VCSERVICE_LOG03(log, arg, ...) \
+    VCSERVICE_LOG_ITEM(log, arg); \
+    if (!VCSERVICE_LOG_END_OF_INPUT(arg)) { \
+        VCSERVICE_LOG04(log, __VA_ARGS__); \
+    }
+
+#define VCSERVICE_LOG04(log, arg, ...) \
+    VCSERVICE_LOG_ITEM(log, arg); \
+    if (!VCSERVICE_LOG_END_OF_INPUT(arg)) { \
+        VCSERVICE_LOG05(log, __VA_ARGS__); \
+    }
+
+#define VCSERVICE_LOG05(log, arg, ...) \
+    VCSERVICE_LOG_ITEM(log, arg); \
+    if (!VCSERVICE_LOG_END_OF_INPUT(arg)) { \
+        VCSERVICE_LOG06(log, __VA_ARGS__); \
+    }
+
+#define VCSERVICE_LOG06(log, arg, ...) \
+    VCSERVICE_LOG_ITEM(log, arg); \
+    if (!VCSERVICE_LOG_END_OF_INPUT(arg)) { \
+        VCSERVICE_LOG07(log, __VA_ARGS__); \
+    }
+
+#define VCSERVICE_LOG07(log, arg, ...) \
+    VCSERVICE_LOG_ITEM(log, arg); \
+    if (!VCSERVICE_LOG_END_OF_INPUT(arg)) { \
+        VCSERVICE_LOG08(log, __VA_ARGS__); \
+    }
+
+#define VCSERVICE_LOG08(log, arg, ...) \
+    VCSERVICE_LOG_ITEM(log, arg); \
+    if (!VCSERVICE_LOG_END_OF_INPUT(arg)) { \
+        VCSERVICE_LOG09(log, __VA_ARGS__); \
+    }
+
+#define VCSERVICE_LOG09(log, arg, ...) \
+    VCSERVICE_LOG_ITEM(log, arg); \
+    if (!VCSERVICE_LOG_END_OF_INPUT(arg)) { \
+        VCSERVICE_LOG10(log, __VA_ARGS__); \
+    }
+
+#define VCSERVICE_LOG10(log, arg, ...) \
+    VCSERVICE_LOG_ITEM(log, arg); \
+    if (!VCSERVICE_LOG_END_OF_INPUT(arg)) { \
+        VCSERVICE_LOG11(log, __VA_ARGS__); \
+    }
+
+#define VCSERVICE_LOG11(log, arg, ...) \
+    VCSERVICE_LOG_ITEM(log, arg); \
+    if (!VCSERVICE_LOG_END_OF_INPUT(arg)) { \
+        VCSERVICE_LOG12(log, __VA_ARGS__); \
+    }
+
+#define VCSERVICE_LOG12(log, arg, ...) \
+    VCSERVICE_LOG_ITEM(log, arg); \
+    if (!VCSERVICE_LOG_END_OF_INPUT(arg)) { \
+        VCSERVICE_LOG13(log, __VA_ARGS__); \
+    }
+
+#define VCSERVICE_LOG13(log, arg, ...) \
+    VCSERVICE_LOG_ITEM(log, arg); \
+    if (!VCSERVICE_LOG_END_OF_INPUT(arg)) { \
+        VCSERVICE_LOG14(log, __VA_ARGS__); \
+    }
+
+#define VCSERVICE_LOG14(log, arg, ...) \
+    VCSERVICE_LOG_ITEM(log, arg); \
+    if (!VCSERVICE_LOG_END_OF_INPUT(arg)) { \
+        VCSERVICE_LOG15(log, __VA_ARGS__); \
+    }
+
+#define VCSERVICE_LOG15(log, arg, ...) \
+    VCSERVICE_LOG_ITEM(log, arg); \
+    if (!VCSERVICE_LOG_END_OF_INPUT(arg)) { \
+        VCSERVICE_LOG16(log, __VA_ARGS__); \
+    }
+
+#define VCSERVICE_LOG16(log, arg, ...) \
+    VCSERVICE_LOG_ITEM(log, arg); \
+    if (!VCSERVICE_LOG_END_OF_INPUT(arg)) { \
+        VCSERVICE_LOG17(log, __VA_ARGS__); \
+    }
+
+#define VCSERVICE_LOG17(log, arg, ...) \
+    VCSERVICE_LOG_ITEM(log, arg); \
+    if (!VCSERVICE_LOG_END_OF_INPUT(arg)) { \
+        VCSERVICE_LOG18(log, __VA_ARGS__); \
+    }
+
+#define VCSERVICE_LOG18(log, arg, ...) \
+    VCSERVICE_LOG_ITEM(log, arg); \
+    if (!VCSERVICE_LOG_END_OF_INPUT(arg)) { \
+        VCSERVICE_LOG19(log, __VA_ARGS__); \
+    }
+
+#define VCSERVICE_LOG19(log, arg, ...) \
+    VCSERVICE_LOG_ITEM(log, arg); \
+    if (!VCSERVICE_LOG_END_OF_INPUT(arg)) { \
+        VCSERVICE_LOG20(log, __VA_ARGS__); \
+    }
+
+#define VCSERVICE_LOG20(log, arg, ...) \
+    VCSERVICE_LOG_ITEM(log, arg); \
+    if (!VCSERVICE_LOG_END_OF_INPUT(arg)) { \
+        VCSERVICE_LOG21(log, __VA_ARGS__); \
+    }
+
+#define VCSERVICE_LOG21(log, arg, ...) \
+    VCSERVICE_LOG_ITEM(log, arg); \
+    if (!VCSERVICE_LOG_END_OF_INPUT(arg)) { \
+        VCSERVICE_LOG22(log, __VA_ARGS__); \
+    }
+
+#define VCSERVICE_LOG22(log, arg, ...) \
+    VCSERVICE_LOG_ITEM(log, arg); \
+    if (!VCSERVICE_LOG_END_OF_INPUT(arg)) { \
+        VCSERVICE_LOG23(log, __VA_ARGS__); \
+    }
+
+#define VCSERVICE_LOG23(log, arg, ...) \
+    VCSERVICE_LOG_ITEM(log, arg); \
+    if (!VCSERVICE_LOG_END_OF_INPUT(arg)) { \
+        VCSERVICE_LOG24(log, __VA_ARGS__); \
+    }
+
+#define VCSERVICE_LOG24(log, arg, ...) \
+    VCSERVICE_LOG_ITEM(log, arg); \
+    if (!VCSERVICE_LOG_END_OF_INPUT(arg)) { \
+        VCSERVICE_LOG25(log, __VA_ARGS__); \
+    }
+
+#define VCSERVICE_LOG25(log, arg, ...) \
+    VCSERVICE_LOG_ITEM(log, arg); \
+    if (!VCSERVICE_LOG_END_OF_INPUT(arg)) { \
+        VCSERVICE_LOG26(log, __VA_ARGS__); \
+    }
+
+#define VCSERVICE_LOG26(log, arg, ...) \
+    VCSERVICE_LOG_ITEM(log, arg); \
+    if (!VCSERVICE_LOG_END_OF_INPUT(arg)) { \
+        VCSERVICE_LOG27(log, __VA_ARGS__); \
+    }
+
+#define VCSERVICE_LOG27(log, arg, ...) \
+    VCSERVICE_LOG_ITEM(log, arg); \
+    if (!VCSERVICE_LOG_END_OF_INPUT(arg)) { \
+        VCSERVICE_LOG28(log, __VA_ARGS__); \
+    }
+
+#define VCSERVICE_LOG28(log, arg, ...) \
+    VCSERVICE_LOG_ITEM(log, arg); \
+    if (!VCSERVICE_LOG_END_OF_INPUT(arg)) { \
+        VCSERVICE_LOG29(log, __VA_ARGS__); \
+    }
+
+#define VCSERVICE_LOG29(log, arg, ...) \
+    VCSERVICE_LOG_ITEM(log, arg); \
+    if (!VCSERVICE_LOG_END_OF_INPUT(arg)) { \
+        VCSERVICE_LOG30(log, __VA_ARGS__); \
+    }
+
+#define VCSERVICE_LOG30(log, arg, ...) \
+    VCSERVICE_LOG_ITEM(log, arg); \
+    if (!VCSERVICE_LOG_END_OF_INPUT(arg)) { \
+        VCSERVICE_LOG31(log, __VA_ARGS__); \
+    }
+
+#define VCSERVICE_LOG31(log, arg, ...) \
+    VCSERVICE_LOG_ITEM(log, arg); \
+    if (!VCSERVICE_LOG_END_OF_INPUT(arg)) { \
+        VCSERVICE_LOG32(log, __VA_ARGS__); \
+    }
+
+#define VCSERVICE_LOG32(log, arg, ...) \
+    VCSERVICE_LOG_ITEM(log, arg); \
+    if (!VCSERVICE_LOG_END_OF_INPUT(arg)) { \
+        VCSERVICE_LOG33(log, __VA_ARGS__); \
+    }
+
+#define VCSERVICE_LOG33(log, arg, ...) \
+    VCSERVICE_LOG_ITEM(log, arg); \
+    if (!VCSERVICE_LOG_END_OF_INPUT(arg)) { \
+        VCSERVICE_LOG34(log, __VA_ARGS__); \
+    }
+
+#define VCSERVICE_LOG34(log, arg, ...) \
+    VCSERVICE_LOG_ITEM(log, arg); \
+    if (!VCSERVICE_LOG_END_OF_INPUT(arg)) { \
+        VCSERVICE_LOG35(log, __VA_ARGS__); \
+    }
+
+#define VCSERVICE_LOG35(log, arg, ...) \
+    VCSERVICE_LOG_ITEM(log, arg); \
+    if (!VCSERVICE_LOG_END_OF_INPUT(arg)) { \
+        VCSERVICE_LOG36(log, __VA_ARGS__); \
+    }
+
+#define VCSERVICE_LOG36(log, arg, ...) \
+    VCSERVICE_LOG_ITEM(log, arg); \
+    if (!VCSERVICE_LOG_END_OF_INPUT(arg)) { \
+        VCSERVICE_LOG37(log, __VA_ARGS__); \
+    }
+
+#define VCSERVICE_LOG37(log, arg, ...) \
+    VCSERVICE_LOG_ITEM(log, arg); \
+    if (!VCSERVICE_LOG_END_OF_INPUT(arg)) { \
+        VCSERVICE_LOG38(log, __VA_ARGS__); \
+    }
+
+#define VCSERVICE_LOG38(log, arg, ...) \
+    VCSERVICE_LOG_ITEM(log, arg); \
+    if (!VCSERVICE_LOG_END_OF_INPUT(arg)) { \
+        VCSERVICE_LOG39(log, __VA_ARGS__); \
+    }
+
+#define VCSERVICE_LOG39(log, arg, ...) \
+    VCSERVICE_LOG_ITEM(log, arg); \
+    if (!VCSERVICE_LOG_END_OF_INPUT(arg)) { \
+        VCSERVICE_LOG40(log, __VA_ARGS__); \
+    }
+
+#define VCSERVICE_LOG40(log, arg, ...) \
+    VCSERVICE_LOG_ITEM(log, arg); \
+    if (!VCSERVICE_LOG_END_OF_INPUT(arg)) { \
+        VCSERVICE_LOG41(log, __VA_ARGS__); \
+    }
+
+#define VCSERVICE_LOG41(log, arg, ...) \
+    VCSERVICE_LOG_ITEM(log, arg); \
+    if (!VCSERVICE_LOG_END_OF_INPUT(arg)) { \
+        VCSERVICE_LOG42(log, __VA_ARGS__); \
+    }
+
+#define VCSERVICE_LOG42(log, arg, ...) \
+    VCSERVICE_LOG_ITEM(log, arg); \
+    if (!VCSERVICE_LOG_END_OF_INPUT(arg)) { \
+        VCSERVICE_LOG43(log, __VA_ARGS__); \
+    }
+
+#define VCSERVICE_LOG43(log, arg, ...) \
+    VCSERVICE_LOG_ITEM(log, arg); \
+    if (!VCSERVICE_LOG_END_OF_INPUT(arg)) { \
+        VCSERVICE_LOG44(log, __VA_ARGS__); \
+    }
+
+#define VCSERVICE_LOG44(log, arg, ...) \
+    VCSERVICE_LOG_ITEM(log, arg); \
+    if (!VCSERVICE_LOG_END_OF_INPUT(arg)) { \
+        VCSERVICE_LOG45(log, __VA_ARGS__); \
+    }
+
+#define VCSERVICE_LOG45(log, arg, ...) \
+    VCSERVICE_LOG_ITEM(log, arg); \
+    if (!VCSERVICE_LOG_END_OF_INPUT(arg)) { \
+        VCSERVICE_LOG46(log, __VA_ARGS__); \
+    }
+
+#define VCSERVICE_LOG46(log, arg, ...) \
+    VCSERVICE_LOG_ITEM(log, arg); \
+    if (!VCSERVICE_LOG_END_OF_INPUT(arg)) { \
+        VCSERVICE_LOG47(log, __VA_ARGS__); \
+    }
+
+#define VCSERVICE_LOG47(log, arg, ...) \
+    VCSERVICE_LOG_ITEM(log, arg); \
+    if (!VCSERVICE_LOG_END_OF_INPUT(arg)) { \
+        VCSERVICE_LOG48(log, __VA_ARGS__); \
+    }
+
+#define VCSERVICE_LOG48(log, arg, ...) \
+    VCSERVICE_LOG_ITEM(log, arg); \
+    if (!VCSERVICE_LOG_END_OF_INPUT(arg)) { \
+        VCSERVICE_LOG49(log, __VA_ARGS__); \
+    }
+
+#define VCSERVICE_LOG49(log, arg, ...) \
+    VCSERVICE_LOG_ITEM(log, arg); \
+    if (!VCSERVICE_LOG_END_OF_INPUT(arg)) { \
+        VCSERVICE_LOG50(log, __VA_ARGS__); \
+    }
+
+#define VCSERVICE_LOG50(log, arg, ...) \
+    VCSERVICE_LOG_ITEM(log, arg); \
+    if (!VCSERVICE_LOG_END_OF_INPUT(arg)) { \
+        vcservice_log_format_set_default( \
+            log, &vcservice_log_format_default_sentry); \
+        VCSERVICE_LOG_ITEM(log, " (truncated)"); \
+    }
+
 /* make this header C++ friendly. */
 #ifdef __cplusplus
 }
