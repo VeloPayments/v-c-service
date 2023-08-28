@@ -262,7 +262,7 @@ vcservice_log_append_uuid(vcservice_log* log, const RCPR_SYM(rcpr_uuid)* val);
  * \brief Set the log formatting mode to the default.
  *
  * \param log           The \ref vcservice_log instance for this operation.
- * \param val           The dummy value for this operation.
+ * \param val           The sentry value for this operation.
  */
 void
 vcservice_log_format_set_default(
@@ -272,11 +272,21 @@ vcservice_log_format_set_default(
  * \brief Set the log formatting mode to hex.
  *
  * \param log           The \ref vcservice_log instance for this operation.
- * \param val           The dummy value for this operation.
+ * \param val           The sentry value for this operation.
  */
 void
 vcservice_log_format_set_hex(
     vcservice_log* log, const vcservice_log_format_hex* val);
+
+/**
+ * \brief Handle a no-operation, needed for type resolution in the debug macro.
+ *
+ * \param log           The \ref vcservice_log instance for this operation.
+ * \param val           The dummy value for this operation.
+ */
+void
+vcservice_log_format_no_op(
+    vcservice_log* log, const void* val);
 
 /**
  * \brief Commit the logging message.
