@@ -192,6 +192,15 @@ void
 vcservice_log_append_int32(vcservice_log* log, int32_t val);
 
 /**
+ * \brief Append a 32-bit unsigned integer value to the logging message.
+ *
+ * \param log           The \ref vcservice_log instance for this operation.
+ * \param val           The unsigned integer value to append.
+ */
+void
+vcservice_log_append_uint32(vcservice_log* log, uint32_t val);
+
+/**
  * \brief Commit the logging message.
  *
  * \param log           The \ref vcservice_log instance for this operation.
