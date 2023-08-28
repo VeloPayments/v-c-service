@@ -139,6 +139,18 @@ vcservice_log_create_using_standard_output(
 RCPR_SYM(resource*)
 vcservice_log_resource_handle(vcservice_log* log);
 
+/**
+ * \brief Given a \ref vcservice_log instance, return its logging threshold
+ * level.
+ *
+ * \param log           The \ref vcservice_log insatnce from which the resource
+ *                      handle is returned.
+ *
+ * \returns the logging threshold for this \ref vcservice_log instance.
+ */
+unsigned int
+vcservice_log_threshold_level(const vcservice_log* log);
+
 /* make this header C++ friendly. */
 #ifdef __cplusplus
 }
