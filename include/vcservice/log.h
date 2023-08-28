@@ -156,6 +156,15 @@ void
 vcservice_log_append_int8(vcservice_log* log, int8_t val);
 
 /**
+ * \brief Append an 8-bit unsigned integer value to the logging message.
+ *
+ * \param log           The \ref vcservice_log instance for this operation.
+ * \param val           The unsigned integer value to append.
+ */
+void
+vcservice_log_append_uint8(vcservice_log* log, uint8_t val);
+
+/**
  * \brief Commit the logging message.
  *
  * \param log           The \ref vcservice_log instance for this operation.
