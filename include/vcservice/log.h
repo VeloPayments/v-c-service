@@ -169,6 +169,15 @@ void
 vcservice_log_message_start(vcservice_log* log);
 
 /**
+ * \brief Append the log level to the logging message.
+ *
+ * \param log           The \ref vcservice_log instance for this operation.
+ * \param level         The logging level to log.
+ */
+void
+vcservice_log_append_log_level(vcservice_log* log, unsigned int level);
+
+/**
  * \brief Append a string value to the logging message.
  *
  * \param log           The \ref vcservice_log instance for this operation.
