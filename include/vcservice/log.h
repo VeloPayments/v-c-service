@@ -25,6 +25,16 @@ extern "C" {
 typedef struct vcservice_log vcservice_log;
 
 /**
+ * \brief Forward decl for the default log format.
+ */
+typedef struct vcservice_log_format_default vcservice_log_format_default;
+
+/**
+ * \brief The sentry value for the default log format.
+ */
+extern vcservice_log_format_default vcservice_log_format_default_sentry;
+
+/**
  * \brief Log levels.
  */
 enum vcservice_loglevel
