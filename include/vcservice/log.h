@@ -658,6 +658,8 @@ vcservice_log_threshold_level(const vcservice_log* log);
         VCSERVICE_LOG_ITEM(log, " (truncated)"); \
     }
 
+#define VCLEOM &vcservice_log_end_of_message_sentry
+
 /* make this header C++ friendly. */
 #ifdef __cplusplus
 }
