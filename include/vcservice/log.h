@@ -60,11 +60,11 @@ extern vcservice_log_end_of_message vcservice_log_end_of_message_sentry;
 enum vcservice_loglevel
 {
     VCSERVICE_LOGLEVEL_CRITICAL             =  0,
-    VCSERVICE_LOGLEVEL_ERROR                = 10,
-    VCSERVICE_LOGLEVEL_NORMAL               = 20,
-    VCSERVICE_LOGLEVEL_INFO                 = 30,
-    VCSERVICE_LOGLEVEL_VERBOSE              = 40,
-    VCSERVICE_LOGLEVEL_DEBUG                = 50,
+    VCSERVICE_LOGLEVEL_ERROR                =  1,
+    VCSERVICE_LOGLEVEL_NORMAL               =  2,
+    VCSERVICE_LOGLEVEL_INFO                 =  3,
+    VCSERVICE_LOGLEVEL_VERBOSE              =  4,
+    VCSERVICE_LOGLEVEL_DEBUG                =  5,
 };
 
 /******************************************************************************/
