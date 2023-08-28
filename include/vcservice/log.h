@@ -45,6 +45,16 @@ typedef struct vcservice_log_format_hex vcservice_log_format_hex;
 extern vcservice_log_format_hex vcservice_log_format_hex_sentry;
 
 /**
+ * \brief Forward decl for the end-of-message type.
+ */
+typedef struct vcservice_log_end_of_message vcservice_log_end_of_message;
+
+/**
+ * \brief The end-of-message sentry value.
+ */
+extern vcservice_log_end_of_message vcservice_log_end_of_message_sentry;
+
+/**
  * \brief Log levels.
  */
 enum vcservice_loglevel
@@ -302,6 +312,10 @@ vcservice_log_resource_handle(vcservice_log* log);
  */
 unsigned int
 vcservice_log_threshold_level(const vcservice_log* log);
+
+/******************************************************************************/
+/* Start of utility macros.                                                   */
+/******************************************************************************/
 
 /* make this header C++ friendly. */
 #ifdef __cplusplus
