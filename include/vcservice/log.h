@@ -339,6 +339,13 @@ vcservice_log_threshold_level(const vcservice_log* log);
 /* this section won't work in C++. */
 #if !defined(__cplusplus)
 
+/**
+ * \brief Log a debug message to the given logger.
+ *
+ * \param log           The logger for this operation.
+ * \param ...           A comma separated list of values to append to this log
+ *                      message.
+ */
 #define DEBUG_LOG(log, ...) \
     do { \
     if (vcservice_log_threshold_level(log) >= VCSERVICE_LOGLEVEL_DEBUG) { \
@@ -355,6 +362,37 @@ vcservice_log_threshold_level(const vcservice_log* log);
         vcservice_log_message_commit(log); \
     } } while (0)
 
+/**
+ * \brief Log a verbose message to the given logger.
+ *
+ * \param log           The logger for this operation.
+ * \param ...           A comma separated list of values to append to this log
+ *                      message.
+ */
+#define VERBOSE_LOG(log, ...) \
+    do { \
+    if (vcservice_log_threshold_level(log) >= VCSERVICE_LOGLEVEL_VERBOSE) { \
+        vcservice_log_message_start(log); \
+        vcservice_log_append_log_level(log, VCSERVICE_LOGLEVEL_VERBOSE); \
+        VCSERVICE_LOG01(log, __VA_ARGS__, \
+            VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, \
+            VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, \
+            VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, \
+            VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, \
+            VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, \
+            VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, VCLEOM, \
+            VCLEOM, VCLEOM, VCLEOM) \
+        vcservice_log_message_commit(log); \
+    } } while (0)
+
+/**
+ * \brief Format the given value as hexadecimal if that is supported for this
+ * type.
+ *
+ * \param arg           The argument to format as hex.
+ *
+ * \note This macro must be used as an argument to a log macro.
+ */
 #define LOG_HEX(arg) \
     &vcservice_log_format_hex_sentry, (arg), \
     &vcservice_log_format_default_sentry
