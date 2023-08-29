@@ -26,9 +26,7 @@ vcservice_log_write_psock(
     status retval;
 
     /* the context is a psock instance. */
-    /* TODO - use this instead of a raw cast. */
-    /* psock* sock = psock_resource_handle_to_psock(user_context); */
-    psock* sock = (psock*)user_context;
+    psock* sock = psock_resource_handle_to_psock(user_context);
 
     /* parameter sanity checks. */
     RCPR_MODEL_ASSERT(prop_vcservice_log_valid(log));
