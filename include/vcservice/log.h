@@ -113,8 +113,8 @@ enum vcservice_loglevel
  *      - On failure, \p log is set to NULL and an error status is returned.
  */
 status FN_DECL_MUST_CHECK
-vcservice_log_create_from_descriptor(
-    vcservice_log** log, RCPR_SYM(allocator)* a, RCPR_SYM(psock)* sock,
+vcservice_log_create_from_psock(
+    vcservice_log** log, RCPR_SYM(allocator)* alloc, RCPR_SYM(psock)* sock,
     unsigned int threshold_level);
 
 /**
