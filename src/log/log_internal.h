@@ -9,6 +9,12 @@
 #pragma once
 
 #include <rcpr/resource/protected.h>
+#include <vcservice/log.h>
+
+/* make this header C++ friendly. */
+#ifdef __cplusplus
+extern "C" {
+#endif  /*__cplusplus*/
 
 #define MAX_LOG_MESSAGE_SIZE 4096
 
@@ -22,6 +28,7 @@
 struct vcservice_log
 {
     RCPR_SYM(resource) hdr;
+    RCPR_SYM(allocator)* alloc;
     unsigned int threshold_level;
     RCPR_SYM(resource)* user_context;
     unsigned int log_level;
@@ -33,3 +40,21 @@ struct vcservice_log
         vcservice_log* log, unsigned int log_level,
         RCPR_SYM(resource)* user_contex);
 };
+
+/**
+ * \brief Release the \ref vcservice_log resource.
+ *
+ * \param r             The resource to release.
+ *
+ * \returns a status code indicating success or failure.
+ *      - STATUS_SUCCESS on success.
+ *      - a non-zero error code on failure.
+ */
+status
+vcservice_log_resource_release(
+    RCPR_SYM(resource)* r);
+
+/* make this header C++ friendly. */
+#ifdef __cplusplus
+}
+#endif  /*__cplusplus*/
