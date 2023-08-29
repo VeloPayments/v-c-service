@@ -54,6 +54,19 @@ status
 vcservice_log_resource_release(
     RCPR_SYM(resource)* r);
 
+/**
+ * \brief Write the log message to the given psock (type erased as
+ * user_context).
+ *
+ * \param log           The \ref vcservice_log instance.
+ * \param log_level     The log level for the message to write.
+ * \param user_context  The type erased psock.
+ */
+void
+vcservice_log_write_psock(
+    vcservice_log* log, unsigned int log_level,
+    RCPR_SYM(resource)* user_context);
+
 /* make this header C++ friendly. */
 #ifdef __cplusplus
 }
