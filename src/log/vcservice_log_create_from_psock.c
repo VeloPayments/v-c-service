@@ -82,6 +82,7 @@ vcservice_log_create_from_psock(
 
     /* initialize resource. */
     resource_init(&tmp->hdr, &vcservice_log_resource_release);
+    tmp->alloc = alloc;
     tmp->threshold_level = threshold_level;
     tmp->user_context = psock_resource_handle(sock);
     tmp->log_write_cb = &vcservice_log_write_psock;
