@@ -6,12 +6,15 @@
  * \copyright 2023 Velo Payments, Inc.  All rights reserved.
  */
 
+#include <stdlib.h>
 #include <unistd.h>
 #include <vcservice/log.h>
 
 RCPR_IMPORT_allocator_as(rcpr);
 RCPR_IMPORT_psock;
 RCPR_IMPORT_resource;
+
+static unsigned int logger_threshold_level();
 
 /**
  * \brief Main entry point for the stdout_logger example.
@@ -25,7 +28,7 @@ int main(int argc, char* argv[])
     bool error = false;
     rcpr_allocator* alloc;
     vcservice_log* log;
-    unsigned int threshold_level = VCSERVICE_LOGLEVEL_DEBUG;
+    const unsigned int threshold_level = logger_threshold_level();
 
     (void)argc;
     (void)argv;
@@ -50,6 +53,9 @@ int main(int argc, char* argv[])
 
     INFO_LOG(
         log, "The threshold log level has been set to ", threshold_level, ".");
+    INFO_LOG(
+        log, "To override the threshold level,",
+        " set VCSERVICE_LOG_THRESHOLD_LEVEL");
     VERBOSE_LOG(log, "This is an example verbose log.");
     ERROR_LOG(log, "This is an example error log.");
     CRITICAL_LOG(log, "This is an example critical log.");
@@ -79,4 +85,29 @@ done:
         return 1;
     else
         return 0;
+}
+
+/**
+ * \brief Get the logger threshold level from the environment.
+ *
+ * \returns the threshold level or a default.
+ */
+static unsigned int logger_threshold_level()
+{
+    const unsigned int default_threshold_level = VCSERVICE_LOGLEVEL_DEBUG;
+    const char* threshold_level_string =
+        getenv("VCSERVICE_LOG_THRESHOLD_LEVEL");
+
+    if (NULL == threshold_level_string)
+    {
+        return default_threshold_level;
+    }
+
+    unsigned int threshold_level = (unsigned int)atoi(threshold_level_string);
+    if (threshold_level > VCSERVICE_LOGLEVEL_DEBUG)
+    {
+        return default_threshold_level;
+    }
+
+    return threshold_level;
 }
