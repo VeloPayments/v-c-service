@@ -28,21 +28,7 @@ vcservice_log_append_log_level(vcservice_log* log, unsigned int level)
     /* get the string to output. */
     const char* str = log_level_to_string(level);
 
-    /* calculate the current size of the log message. */
-    size_t message_size = sizeof(log->log_message) - log->log_idx;
-
-    /* get the length of the string. */
-    size_t adjsize = strlen(str);
-    if (adjsize > message_size)
-    {
-        adjsize = message_size;
-    }
-
-    /* copy the string. */
-    memcpy(log->log_message + log->log_idx, str, adjsize);
-
-    /* adjust the size. */
-    log->log_idx += adjsize;
+    vcservice_log_append_string(log, str);
 }
 
 /**
