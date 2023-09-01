@@ -413,7 +413,7 @@ vcservice_log_threshold_level(const vcservice_log* log);
 
 #define LOG_WITH_LEVEL(log, level, ...) \
     do { \
-    if (vcservice_log_threshold_level(log) >= (level)) { \
+    if ((int)vcservice_log_threshold_level(log) >= (int)(level)) { \
         vcservice_log_message_start(log); \
         vcservice_log_append_log_level(log, (level)); \
         VCSERVICE_LOG01(log, __VA_ARGS__, \
