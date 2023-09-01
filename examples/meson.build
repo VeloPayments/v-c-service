@@ -1,0 +1,1 @@
+subdir('stdout_logger')
