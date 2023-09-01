@@ -44,10 +44,6 @@ vcservice_log_message_start(vcservice_log* log)
             log->log_message + log->log_idx, message_size, "%Y-%m-%d %H:%M:%S ",
             &local);
 
-    /* adjust the time. */
+    /* adjust the size. */
     log->log_idx += adjsize;
-    if (log->log_idx > sizeof(log->log_message))
-    {
-        log->log_idx = sizeof(log->log_message);
-    }
 }
