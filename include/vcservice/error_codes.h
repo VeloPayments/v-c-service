@@ -23,6 +23,11 @@ extern "C" {
  */
 #define VCSERVICE_ERROR_PATH_INVALID_PARAMETER 0x6101
 
+/**
+ * \brief The logging interface could not dup standard output.
+ */
+#define VCSERVICE_ERROR_LOG_STDOUT_DUP 0x6102
+
 /* make this header C++ friendly. */
 #ifdef __cplusplus
 }
