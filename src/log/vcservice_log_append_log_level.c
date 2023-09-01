@@ -45,21 +45,21 @@ static const char* log_level_to_string(unsigned int level)
             return "CRITICAL ";
 
         case VCSERVICE_LOGLEVEL_ERROR:
-            return "ERROR ";
+            return "ERROR    ";
 
         case VCSERVICE_LOGLEVEL_NORMAL:
-            return "NORMAL ";
+            return "NORMAL   ";
 
         case VCSERVICE_LOGLEVEL_INFO:
-            return "INFO ";
+            return "INFO     ";
 
         case VCSERVICE_LOGLEVEL_VERBOSE:
-            return "VERBOSE ";
+            return "VERBOSE  ";
 
         case VCSERVICE_LOGLEVEL_DEBUG:
-            return "DEBUG ";
+            return "DEBUG    ";
 
         default:
-            return "UNKNOWN ";
+            return "UNKNOWN  ";
     }
 }
