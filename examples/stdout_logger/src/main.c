@@ -24,9 +24,7 @@ int main(int argc, char* argv[])
     status retval, release_retval;
     bool error = false;
     rcpr_allocator* alloc;
-    psock* sock = NULL;
     vcservice_log* log;
-    int stdout_dup_desc = -1;
     unsigned int threshold_level = VCSERVICE_LOGLEVEL_DEBUG;
 
     (void)argc;
@@ -40,31 +38,18 @@ int main(int argc, char* argv[])
         goto done;
     }
 
-    /* TODO - replace this hackery with
-     * vcservice_log_create_using_standard_output */
-    stdout_dup_desc = dup(1);
-    if (stdout_dup_desc < 0)
+    /* create the logger. */
+    retval =
+        vcservice_log_create_using_standard_output(
+            &log, alloc, threshold_level);
+    if (STATUS_SUCCESS != retval)
     {
         error = true;
         goto cleanup_alloc;
     }
-    retval = psock_create_from_descriptor(&sock, alloc, stdout_dup_desc);
-    if (STATUS_SUCCESS != retval)
-    {
-        error = true;
-        goto cleanup_stdout_dup_desc;
-    }
-    stdout_dup_desc = -1;
-    retval =
-        vcservice_log_create_from_psock(&log, alloc, sock, threshold_level);
-    if (STATUS_SUCCESS != retval)
-    {
-        error = true;
-        goto cleanup_sock;
-    }
-    sock = NULL;
 
-    INFO_LOG(log, "The threshold log level has been set to ", threshold_level);
+    INFO_LOG(
+        log, "The threshold log level has been set to ", threshold_level, ".");
     VERBOSE_LOG(log, "This is an example verbose log.");
     ERROR_LOG(log, "This is an example error log.");
     CRITICAL_LOG(log, "This is an example critical log.");
@@ -79,23 +64,6 @@ cleanup_log:
     {
         error = 1;
         retval = release_retval;
-    }
-
-cleanup_sock:
-    if (NULL != sock)
-    {
-        release_retval = resource_release(psock_resource_handle(sock));
-        if (STATUS_SUCCESS != release_retval)
-        {
-            error = true;
-            retval = release_retval;
-        }
-    }
-
-cleanup_stdout_dup_desc:
-    if (stdout_dup_desc >= 0)
-    {
-        close(stdout_dup_desc);
     }
 
 cleanup_alloc:
