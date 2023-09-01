@@ -154,7 +154,8 @@ vcservice_log_create_from_psock(
  */
 status FN_DECL_MUST_CHECK
 vcservice_log_create_using_standard_output(
-    vcservice_log** log, RCPR_SYM(allocator)* a, unsigned int threshold_level);
+    vcservice_log** log, RCPR_SYM(allocator)* alloc,
+    unsigned int threshold_level);
 
 /******************************************************************************/
 /* Start of public methods.                                                   */
