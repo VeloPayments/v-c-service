@@ -51,7 +51,7 @@ static const char* log_format_string(const vcservice_log* log)
     /* should we log a hex value? */
     if (log->log_bits & LOG_BITS_FORMAT_HEX)
     {
-        return "%04x";
+        return "0x%04x";
     }
     else
     {
