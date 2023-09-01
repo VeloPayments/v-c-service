@@ -25,6 +25,9 @@ vcservice_log_append_log_level(vcservice_log* log, unsigned int level)
     RCPR_MODEL_ASSERT(prop_vcservice_log_valid(log));
     RCPR_MODEL_ASSERT(prop_vcservice_log_threshold_level_valid(level));
 
+    /* save this log level to the logging instance. */
+    log->log_level = level;
+
     /* get the string to output. */
     const char* str = log_level_to_string(level);
 
